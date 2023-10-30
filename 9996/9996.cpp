@@ -22,7 +22,7 @@ int main()
     {
         cin >> name;
         if (first.size() + last.size() > name.size())
-            cout << "NE" << "\n";
+            cout << "NE" << "\n"; // 테스트케이스 꼼꼼하게 확인할것
         else
         {
             if (name.substr(0, first.size()) == first && name.substr(name.size() - last.size()) == last)
