@@ -4,11 +4,13 @@ using namespace std;
 /*
 9375 패션왕 신해빈
 https://www.acmicpc.net/problem/9375
+
+map<string, int> 사용
+굳이 옷 이름까지 저장할 필요가 없었음
 */
 
 int c, n;
-string clo, where;
-multimap<string, string> mmp;
+string tmp, where;
 
 int main()
 {
@@ -16,22 +18,18 @@ int main()
     cin.tie(NULL); cout.tie(NULL);
     
     cin >> c;
-    for (int i = 0; i < c; i++)
+    while(c--)
     {   
+        map<string, int> mp;
         int ret = 1;
         cin >> n;
         for (int j = 0; j < n; j++) 
         {
-            cin >> clo >> where;
-            mmp.insert(make_pair(where, clo));
+            cin >> tmp >> where;
+            mp[where]++;
         }
-        auto it = mmp.begin();
-        while (it != mmp.end())
-        {
-            ret *= mmp.count(it->first) + 1;
-            mmp.erase(it->first);
-            it = mmp.begin();
-        }
+        for (auto c : mp)
+            ret *= (c.second + 1);
         cout << ret - 1 << "\n";
     }
 
