@@ -6,6 +6,9 @@ using namespace std;
 https://www.acmicpc.net/problem/1620
 
 검색 잦을 때, 중간 삽입(insert) 있을 때 -> map or set 사용
+map에서
+key 이용 value 찾기 : O(logN)
+value 이용 key 찾기 : O(N) -> 자료구조 2개 사용
 */
 
 int main()
@@ -13,7 +16,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    
+
     int n, m;
     map<string, int> dogam_number;
     vector<string> dogam_name;
