@@ -2,7 +2,7 @@
 using namespace std;
 
 /*
-1629 °ö¼À
+1629 ê³±ì…ˆ
 https://www.acmicpc.net/problem/1629
 
 3 ^ 8 = 3 ^ 2 ^ 2 ^ 2

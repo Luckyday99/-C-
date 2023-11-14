@@ -2,10 +2,10 @@
 using namespace std;
 
 /*
-3986 ÁÁÀº ´Ü¾î
+3986 ì¢‹ì€ ë‹¨ì–´
 https://www.acmicpc.net/source/share/1797670218184cc385194f46b1b967dd
 
-stack : ÈÄÀÔ¼±Ãâ, push, pop 
+stack : í›„ì…ì„ ì¶œ, push, pop 
 */
 
 int n, cnt;

@@ -2,9 +2,10 @@
 using namespace std;
 
 /*
-1940 ÁÖ¸ù
+1940 ì£¼ëª½
 https://www.acmicpc.net/problem/1940
-Á¶ÇÕ 
+
+ì¡°í•©
 */
 
 int n, m, cnt, nums[15004]; 
