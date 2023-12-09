@@ -25,53 +25,52 @@ string p, inp;
 int main()
 {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
+    cin.tie(NULL);
     cin >> t;
     while (t--)
     {
         deque<int> dq;
         cin >> p >> n >> inp;
         int tmp = 0;
-        if (n)
+        for (int i = 1; i + 1 < inp.size(); i++)
         {
-            for (char c : inp)
+            if (inp[i] == ',')
             {
-                if (c >= '0' && c <= '9') tmp = tmp * 10 + (c - '0');
-                else if (c == ',' || c == ']')
-                {
-                    dq.push_back(tmp);
-                    tmp = 0;
-                }
-                else if (c == '[') continue;
+                dq.push_back(tmp);
+                tmp = 0;
             }
+            else tmp = tmp * 10 + (inp[i] - '0');
         }
-        bool rev = false, error = false;
+        if (tmp != 0) dq.push_back(tmp);
+        bool isReverse = false, isError = false;
         for (char c : p)
         {
-            if (c == 'R') rev = !rev;
-            else if (c == 'D')
+            if (c == 'R') isReverse = !isReverse;
+            else
             {
                 if (dq.empty())
                 {
-                    error = true;
+                    isError = true;
                     break;
                 }
-                else if (rev) dq.pop_back();
+                if (isReverse) dq.pop_back();
                 else dq.pop_front();
             }
         }
-        if (error) cout << "error\n";
+        if (isError) cout << "error\n";
         else
         {
-            if (rev) reverse(dq.begin(), dq.end());
-            cout << '[';
+            if (isReverse) reverse(dq.begin(), dq.end());
+            string ret = "[";
             int dqsize = dq.size();
-            for (int i = 0; i < dqsize; i++)
+            for (int i : dq)
             {
-                cout << dq[i];
-                if (i != dqsize - 1) cout << ',';
+                ret += to_string(i);
+                ret += ',';
             }
-            cout << "]\n";
+            if (ret.length() > 1) ret.erase(ret.end() - 1);
+            ret += "]\n";
+            cout << ret;
         }
     }
     return 0;
